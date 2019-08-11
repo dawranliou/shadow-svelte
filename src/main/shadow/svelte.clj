@@ -2,7 +2,8 @@
   (:require
    [clojure.java.io :as io]
    [cljs.compiler :as cljs-comp]
-   [clojure.string :as str]))
+   [clojure.string :as str]
+   [hiccup.core :as h]))
 
 (defn all-vars [state]
   (for [[ns ns-info] (get-in state [:compiler-env :cljs.analyzer/namespaces])
@@ -26,15 +27,14 @@
 
           ;; Y U NO DATA THIS!
           content
-          (str
-           "\nexport {" page-var " as default} from \"../src/cljs/" page-ns ".js\";")
+          (h/html [:h1 "hello world"])
 
           out-dir
           (io/file "site" "src")
 
           out-file
           (io/file out-dir (str page ".svelte"))]
-      (println content)
+      (println "ns-def" ns-def)
 
       (io/make-parents out-file)
       (spit out-file content)))
