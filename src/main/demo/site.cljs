@@ -2,7 +2,7 @@
 
 (defn page-index
   {:export true
-   :svelte/page "index"}
+   :svelte/page "App"}
   []
   [:div
    [:h1 "Hi people!"]

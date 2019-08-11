@@ -30,16 +30,11 @@
            "\nexport {" page-var " as default} from \"../src/cljs/" page-ns ".js\";")
 
           out-dir
-          (io/file "site" "pages")
+          (io/file "site" "src")
 
           out-file
-          (io/file out-dir (str page ".js"))]
-      (println page)
-      (println page-ns)
-      (println page-var)
+          (io/file out-dir (str page ".svelte"))]
       (println content)
-      (println out-dir)
-      (println out-file)
 
       (io/make-parents out-file)
       (spit out-file content)))
