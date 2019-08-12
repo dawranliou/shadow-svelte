@@ -1,11 +1,11 @@
-(ns demo.site)
+(ns demo.site
+  (:require [hiccups.runtime :as hiccupsrt])
+  (:require-macros
+   [hiccups.core :as hiccups :refer [html]]))
 
 (defn page-index
   {:export true
    :svelte/page "App"}
   []
-  [:div
-   [:h1 "Hi people!"]
-
-   [:p "Welcome to your new svelte site."]
-   [:p "Now go build something great with ClojureScript."]])
+  (html
+   [:h1 (str "Hello, world!")]))

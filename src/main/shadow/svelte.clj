@@ -25,16 +25,19 @@
           page-var
           (-> ns-def :name name cljs-comp/munge)
 
-          ;; Y U NO DATA THIS!
           content
-          (h/html [:h1 "hello world"])
+          (str
+           "<script>\n"
+           "  import {" page-var "} from \"./cljs/" page-ns ".js\";\n"
+           "  let page = " page-var "();\n"
+           "</script>\n"
+           "{@html " page-var "()}")
 
           out-dir
           (io/file "site" "src")
 
           out-file
           (io/file out-dir (str page ".svelte"))]
-      (println "ns-def" ns-def)
 
       (io/make-parents out-file)
       (spit out-file content)))

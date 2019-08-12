@@ -4,7 +4,8 @@
   "src/test"]
 
  :dependencies
- [[hiccup "1.0.5"]]
+ [[hiccup "1.0.5"]
+  [hiccups "0.3.0"]]
 
  :builds
  {:site {:target :npm-module
