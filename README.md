@@ -8,8 +8,8 @@ Minimal example showing how shadow-cljs could be used together with [svelte](htt
 
 ```
 npm install
-npx shadow-cljs watch site
-# or
+# `shadow-cljs watch` is currently broken.
+# npx shadow-cljs watch site
 npx shadow-cljs release site
 ```
 
